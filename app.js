@@ -33,7 +33,7 @@ const services = {
 
         text: "Diseñamos y desarrollamos páginas web modernas, rápidas y adaptadas a las necesidades de tu empresa. Creamos experiencias profesionales que generan confianza y ayudan a convertir visitantes en clientes.",
 
-        link: "desarrollo-web.html",
+        link: "servicio.html#web",
 
         mockup: "WEB",
 
@@ -59,7 +59,7 @@ const services = {
 
         text: "Desarrollamos software a medida para administrar ventas, inventario, clientes, empleados y todos los procesos internos de tu empresa desde un solo lugar.",
 
-        link: "sistemas.html",
+        link: "servicio.html#erp",
 
         mockup: "ERP",
 
@@ -85,7 +85,7 @@ const services = {
 
         text: "Automatizamos tareas repetitivas para aumentar la productividad de tu negocio y reducir errores en los procesos diarios.",
 
-        link: "automatizacion.html",
+        link: "servicio.html#automation",
 
         mockup: "AUTO",
 
@@ -111,7 +111,7 @@ const services = {
 
         text: "Conectamos tus sistemas con plataformas externas mediante APIs para que toda la información fluya automáticamente.",
 
-        link: "integraciones.html",
+        link: "servicio.html#integration",
 
         mockup: "API",
 
@@ -137,7 +137,7 @@ const services = {
 
         text: "Creamos dashboards interactivos para que puedas tomar decisiones basadas en datos reales de tu empresa.",
 
-        link: "datos.html",
+        link: "servicio.html#data",
 
         mockup: "DATA",
 
@@ -163,7 +163,7 @@ const services = {
 
         text: "Te acompañamos después de la entrega del proyecto con mantenimiento, mejoras y soporte cuando lo necesites.",
 
-        link: "soporte.html",
+        link: "servicio.html#support",
 
         mockup: "HELP",
 
@@ -230,3 +230,19 @@ buttons.forEach(button=>{
     });
 
 });
+
+/* Animaciones reutilizables para la página Nosotros. */
+const aboutAnimatedElements = document.querySelectorAll(".about-animate");
+
+if (aboutAnimatedElements.length && "IntersectionObserver" in window) {
+    const aboutObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                aboutObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.14 });
+
+    aboutAnimatedElements.forEach((element) => aboutObserver.observe(element));
+}
